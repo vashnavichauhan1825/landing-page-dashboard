@@ -1,7 +1,7 @@
 const Footer = () => {
   const footerList = ["Github", "LinkedIn", "Twitter", "Mail"];
   return (
-    <footer className="bg-[var(--secondary-color)] py-10 fixed bottom-0 right-0 left-0">
+    <footer className="bg-[var(--secondary-color)] py-10 ">
       <ul className="text-[var(--primary-color)] flex justify-center gap-10">
         {footerList.map((tab, i) => (
           <li

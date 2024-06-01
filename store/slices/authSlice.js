@@ -24,8 +24,11 @@ const authSlice = createSlice({
       localStorage.removeItem("user");
       console.log("logiout working");
     },
+    setAuth(state, action) {
+      state.isAuthenticated = action.payload;
+    },
   },
 });
 
-export const { loginUser, logoutUser } = authSlice.actions;
+export const { loginUser, logoutUser, setAuth } = authSlice.actions;
 export default authSlice.reducer;

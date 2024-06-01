@@ -1,0 +1,69 @@
+{
+  "landingPages": [
+    {
+      "id": 1,
+      "userId": "93c8b7ca-7b53-4db6-a6fa-55e40c0f37b8",
+      "title": "Sample Landing Page 1",
+      "description": "This is a sample landing page",
+      "components": [
+        { "type": "Header", "content": "Welcome to our landing page!" },
+        { "type": "TextBlock", "content": "This is some sample text." },
+        { "type": "Image", "src": "image1.jpg" },
+        { "type": "Footer", "content": "© 2024 Sample Company" }
+      ],
+      "status": "Draft"
+    },
+    {
+      "id": 3,
+      "userId": "fe8f97ff-65e6-41e9-853a-0effb3ff3139",
+      "title": "Sample Landing Page 33",
+      "description": "This is a sample landing page",
+      "components": [
+        { "type": "Header", "content": "Welcome to our landing page!" },
+        { "type": "TextBlock", "content": "This is some sample text." },
+        { "type": "Image", "src": "image1.jpg" },
+        { "type": "Footer", "content": "© 2024 Sample Company" }
+      ],
+      "status": "Draft"
+    },
+    {
+      "id": 2,
+      "userId": "93c8b7ca-7b53-4db6-a6fa-55e40c0f37b8",
+      "title": "Sample Landing Page 2",
+      "description": "Another sample landing page",
+      "components": [
+        { "type": "Header", "content": "Welcome to another landing page!" },
+        { "type": "TextBlock", "content": "This is some more sample text." },
+        { "type": "Image", "src": "image2.jpg" },
+        { "type": "Footer", "content": "© 2024 Another Company" }
+      ],
+      "status": "Live"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "title": "Jane's Landing Page",
+      "description": "Jane's landing page",
+      "components": [
+        { "type": "Header", "content": "Welcome to Jane's landing page!" },
+        { "type": "TextBlock", "content": "This is Jane's sample text." },
+        { "type": "Image", "src": "jane_image.jpg" },
+        { "type": "Footer", "content": "© 2024 Jane's Company" }
+      ],
+      "status": "Draft"
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "title": "Jane's Landing Pagennnn",
+      "description": "Jane's landing page",
+      "components": [
+        { "type": "Header", "content": "Welcome to Jane's landing page!" },
+        { "type": "TextBlock", "content": "This is Jane's sample text." },
+        { "type": "Image", "src": "jane_image.jpg" },
+        { "type": "Footer", "content": "© 2024 Jane's Company" }
+      ],
+      "status": "Draft"
+    }
+  ]
+}

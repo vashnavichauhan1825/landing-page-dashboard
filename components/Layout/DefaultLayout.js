@@ -16,7 +16,7 @@ const DefaultLayout = ({ children }) => {
       {isAuthenticated && router.pathname !== "/auth" && (
         <button
           onClick={handleLogout}
-          className="absolute right-10 top-5 bg-[var(--cta-color)] rounded-md my-4 px-4 py-2 hover:opacity-90  hover:text-[var(--primary-color)] cursor-pointer"
+          className="absolute right-2 top-1 bg-[var(--cta-color)] text-xs rounded-md  px-3 py-1 hover:opacity-90  hover:text-[var(--primary-color)] cursor-pointer"
         >
           Logout
         </button>

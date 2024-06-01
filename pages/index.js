@@ -1,14 +1,11 @@
-import { Provider } from "react-redux";
-import store from "@/store";
+import React from "react";
 
-function HomePage() {
+const HomePage = () => {
   return (
-    <Provider store={store}>
-      <div>
-        <h1>happy coding</h1>
-      </div>
-    </Provider>
+    <div>
+      <h1>Landing Page Dashboard</h1>
+    </div>
   );
-}
+};
 
 export default HomePage;

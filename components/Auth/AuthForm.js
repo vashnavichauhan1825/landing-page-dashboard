@@ -3,7 +3,7 @@ import React from "react";
 const LoginForm = () => {
   return (
     <div>
-      <h1>login page</h1>
+      <h1>login form</h1>
     </div>
   );
 };

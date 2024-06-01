@@ -5,7 +5,7 @@ const DefaultLayout = ({ children }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  console.log(isAuthenticated && router.pathname !== "/auth");
+
   const handleLogout = () => {
     dispatch(logoutUser());
     router.push("/auth");

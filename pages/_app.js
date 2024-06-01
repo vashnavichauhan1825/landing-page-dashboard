@@ -14,7 +14,6 @@ function AuthProvider({ children }) {
     const user = localStorage.getItem("user");
     if (user) {
       dispatch(setAuth(true));
-      dispatch(loginUser(JSON.parse(user)));
     } else {
       router.push("/auth");
     }

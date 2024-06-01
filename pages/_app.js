@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import store from "../store";
+import store from "@/store";
 import DefaultLayout from "@/components/Layout/DefaultLayout";
 import "@/styles/globals.css";
 import "tailwindcss/tailwind.css";

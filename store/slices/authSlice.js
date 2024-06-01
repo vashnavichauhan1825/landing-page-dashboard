@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   user: null,
@@ -10,9 +11,11 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     loginUser(state, action) {
-      state.user = action.payload;
+      const userId = uuidv4();
+      state.user = { ...action.payload, userId: userId };
       state.isAuthenticated = true;
-      localStorage.setItem("user", JSON.stringify(action.payload));
+      console.log(state.user);
+      localStorage.setItem("user", JSON.stringify(state.user));
       console.log("login working");
     },
     logoutUser(state) {

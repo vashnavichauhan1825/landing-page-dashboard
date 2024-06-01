@@ -27,6 +27,9 @@ const LandingPageList = () => {
           </Link>
         </li>
       ))}
+      <li className="px-5 py-10 bg-[var(--ter-color)] border-2 border-[var(--cta-color)] rounded-md text-[var(--secondary-color)] text-xl font-semibold text-center cursor-pointer hover:opacity-75">
+        <Link href={`/landingpagecreate`}>Create New</Link>
+      </li>
     </ul>
   );
 };

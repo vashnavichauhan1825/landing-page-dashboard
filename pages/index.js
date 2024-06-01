@@ -1,4 +1,4 @@
-import LandingPageList from "@/components/dashboard/landingPageList";
+import LandingPageList from "@/components/dashboard/LandingPageList";
 const HomePage = () => {
   return (
     <div className="p-4">

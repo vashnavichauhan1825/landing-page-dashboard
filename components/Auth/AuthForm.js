@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "@/store/slices/authSlice";
+import { useRouter } from "next/router";
 const AuthForm = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -20,7 +22,7 @@ const AuthForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(formData));
-    console.log("dataaaaaa", formData);
+    router.push("/");
   };
 
   return (
@@ -31,6 +33,7 @@ const AuthForm = () => {
           type="text"
           id="username"
           name="username"
+          required
           value={formData.username}
           onChange={handleChange}
           placeholder="Enter your username"
@@ -42,6 +45,7 @@ const AuthForm = () => {
           type="password"
           id="password"
           name="password"
+          required
           value={formData.password}
           onChange={handleChange}
           placeholder="Enter your password"

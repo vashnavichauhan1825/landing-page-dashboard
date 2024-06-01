@@ -1,13 +1,16 @@
-import { useRouter } from "next/router";
+import Header from "@/components/LandingPage/Header";
+import Footer from "@/components/LandingPage/Footer";
+import TextBlock from "@/components/LandingPage/TextBlock";
+import Image from "@/components/LandingPage/Image";
+import HeroSec from "@/components/LandingPage/HeroSec";
 
 export default function LandingPage() {
-  const router = useRouter();
-  const { id } = router.query;
-
   return (
     <div>
-      <h1>Landing Page Details</h1>
-      <p>Landing Page ID: {id}</p>
+      <Header />
+      <HeroSec />
+      <TextBlock />
+      <Footer />
     </div>
   );
 }

@@ -35,7 +35,14 @@ const LandingPageCreate = () => {
           },
           {
             type: "Footer",
-            content: ["Github", "LinkedIn", "Twitter", "Mail"],
+            content: [
+              { tab: "Github", link: "https://github.com/vashnavichauhan1825" },
+              {
+                tab: "LinkedIn",
+                link: "https://www.linkedin.com/in/vashnavichauhan18",
+              },
+              { tab: "Twitter", link: "https://x.com/VashnaviChauhan" },
+            ],
           },
         ],
         status: "Draft",

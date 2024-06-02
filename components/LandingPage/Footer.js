@@ -4,6 +4,7 @@ const Footer = () => {
     { tab: "LinkedIn", link: "https://www.linkedin.com/in/vashnavichauhan18" },
     { tab: "Twitter", link: "https://x.com/VashnaviChauhan" },
   ];
+
   return (
     <footer
       id="Contact"

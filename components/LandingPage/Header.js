@@ -1,6 +1,18 @@
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { updateLandingPageStatus } from "@/store/slices/landingPageSlice";
+import { getUserIdFromLocalStorage } from "/store/slices/authSlice";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const dispatch = useDispatch();
+  const userId = getUserIdFromLocalStorage();
+  const handlePublish = () => {
+    dispatch(updateLandingPageStatus({ userId, landingPageId: id }));
+  };
   const tabList = ["Home", "About", "Contact"];
   return (
     <nav className="bg-[var(--secondary-color)] py-3 px-2 h-[10vh] flex items-center justify-center">
@@ -14,7 +26,10 @@ const Header = () => {
           </li>
         ))}
         <li>
-          <button className="bg-[var(--primary-color)] font-medium text-[var(--secondary-color)] px-3 py-1 rounded-md hover:bg-[var(--cta-color)] hover:text-[var(--primary-color)]">
+          <button
+            onClick={handlePublish}
+            className="bg-[var(--primary-color)] font-medium text-[var(--secondary-color)] px-3 py-1 rounded-md hover:bg-[var(--cta-color)] hover:text-[var(--primary-color)]"
+          >
             Publish
           </button>
         </li>

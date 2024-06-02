@@ -13,10 +13,11 @@ const fetchLandingPages = createAsyncThunk(
       `http://localhost:5000/landingPages?userId=${userId}`
     );
     const data = await response.json();
-    console.log("-----dta", data);
+    console.log("-----data", data);
     return data;
   }
 );
+
 const createLandingPage = createAsyncThunk(
   "landingPages/createLandingPage",
   async ({ userId, landingPageData }) => {
@@ -31,6 +32,43 @@ const createLandingPage = createAsyncThunk(
     return data;
   }
 );
+
+const updateLandingPageStatus = createAsyncThunk(
+  "landingPages/updateLandingPageStatus",
+  async ({ userId, landingPageId }) => {
+    await fetch(`http://localhost:5000/landingPages/${landingPageId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: "Live" }),
+    });
+
+    const response = await fetch(
+      `http://localhost:5000/landingPages?userId=${userId}`
+    );
+    const landingPages = await response.json();
+
+    for (const page of landingPages) {
+      if (page.id !== landingPageId) {
+        await fetch(`http://localhost:5000/landingPages/${page.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status: "Draft" }),
+        });
+      }
+    }
+
+    const updatedResponse = await fetch(
+      `http://localhost:5000/landingPages?userId=${userId}`
+    );
+    const updatedData = await updatedResponse.json();
+    return updatedData;
+  }
+);
+
 const landingPageSlice = createSlice({
   name: "landingPages",
   initialState,
@@ -42,7 +80,6 @@ const landingPageSlice = createSlice({
       })
       .addCase(fetchLandingPages.fulfilled, (state, action) => {
         state.status = "succeeded";
-        console.log(action.payload, "ooo");
         state.landingPages = action.payload;
       })
       .addCase(fetchLandingPages.rejected, (state, action) => {
@@ -62,8 +99,21 @@ const landingPageSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       });
+
+    builder
+      .addCase(updateLandingPageStatus.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateLandingPageStatus.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.landingPages = action.payload;
+      })
+      .addCase(updateLandingPageStatus.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
   },
 });
 
-export { fetchLandingPages, createLandingPage };
+export { fetchLandingPages, createLandingPage, updateLandingPageStatus };
 export default landingPageSlice.reducer;

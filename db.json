@@ -616,6 +616,49 @@
           ]
         }
       ],
+      "status": "Live"
+    },
+    {
+      "id": "a707",
+      "userId": "8995cf67-30a0-4689-9d97-57eb4bf49508",
+      "title": "vashnavi chauhan",
+      "description": "hello worlld",
+      "components": [
+        {
+          "type": "Header",
+          "content": [
+            "Home",
+            "About",
+            "Career",
+            "Contact"
+          ]
+        },
+        {
+          "type": "TextContent",
+          "content": "bdhdbhdbhdbfdwh whfbwhfb"
+        },
+        {
+          "type": "Image",
+          "src": "https://unsplash.com/photos/green-trees-on-mountain-during-daytime-jSyzETbKch4"
+        },
+        {
+          "type": "Footer",
+          "content": [
+            {
+              "tab": "Github",
+              "link": "https://github.com/vashnavichauhan1825"
+            },
+            {
+              "tab": "LinkedIn",
+              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+            },
+            {
+              "tab": "Twitter",
+              "link": "https://x.com/VashnaviChauhan"
+            }
+          ]
+        }
+      ],
       "status": "Draft"
     }
   ]

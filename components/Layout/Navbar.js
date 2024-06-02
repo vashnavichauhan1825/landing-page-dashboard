@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   const { id } = router.query;
+
   const tabList = [
     { tab: "Dashboard", link: "/" },
     { tab: "Preview", link: `/landingpage/${id}/preview` },

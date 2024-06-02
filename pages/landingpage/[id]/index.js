@@ -10,18 +10,24 @@ export default function LandingPage() {
   const router = useRouter();
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const livePage = landingPages.filter((page) => page.status === "Live")[0];
-
   const { id } = router.query;
+
+  const isComponentPresent = (componentType) => {
+    return landingPages[0].components.some(
+      (component) => component.type === componentType
+    );
+  };
+
   return (
     <>
       {landingPages && (
         <>
           {router.pathname !== `/landingpage/[id]/preview` &&
             (!livePage || livePage.id !== id) && <Navbar />}
-          <Header />
+          {isComponentPresent("Header") && <Header />}
           <HeroSec />
-          <TextBlock />
-          <Footer />
+          {isComponentPresent("About") && <TextBlock />}
+          {isComponentPresent("Footer") && <Footer />}
         </>
       )}
     </>

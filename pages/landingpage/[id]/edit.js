@@ -11,19 +11,24 @@ const LandingPageEdit = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    textContent: "",
+    About: "",
     image: "",
     github: "",
     twitter: "",
     linkedin: "",
   });
+  const [selectedComp, setSelectedComp] = useState([
+    "About",
+    "Image",
+    "Footer",
+  ]);
 
   useEffect(() => {
     const { id } = router.query;
     const landingPage = landingPages.find((page) => page.id === id);
     if (landingPage) {
-      const textContentComponent = landingPage.components.find(
-        (c) => c.type === "TextContent"
+      const AboutComponent = landingPage.components.find(
+        (c) => c.type === "About"
       );
       const imageComponent = landingPage.components.find(
         (c) => c.type === "Image"
@@ -51,10 +56,13 @@ const LandingPageEdit = () => {
         twitter = twitterObj ? twitterObj.link : "";
         linkedin = linkedinObj ? linkedinObj.link : "";
       }
+      const checkedList = landingPages[0]?.components.map((item) => item.type);
+
+      setSelectedComp(checkedList);
       setFormData({
         title: landingPage.title || "",
         description: landingPage.description || "",
-        textContent: textContentComponent ? textContentComponent.content : "",
+        About: AboutComponent ? AboutComponent.content : "",
         image: imageComponent ? imageComponent.src : "",
         github: github,
         twitter: twitter,
@@ -71,6 +79,15 @@ const LandingPageEdit = () => {
     }));
   };
 
+  const handleCheckboxChange = (e, tab) => {
+    if (e.target.checked) {
+      setSelectedComp((prevSelectedComp) => [...prevSelectedComp, tab]);
+    } else {
+      setSelectedComp((prevSelectedComp) =>
+        prevSelectedComp.filter((item) => item !== tab)
+      );
+    }
+  };
   const { id } = router.query;
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,18 +95,31 @@ const LandingPageEdit = () => {
       const userId = getUserIdFromLocalStorage();
 
       const components = [
-        { type: "Header", content: ["Home", "About", "Contact"] },
-        { type: "TextContent", content: formData.textContent },
-        { type: "Image", src: formData.image },
         {
+          type: "Header",
+          content: ["Home", "About", "Contact"],
+        },
+      ];
+
+      if (selectedComp.includes("About")) {
+        components.push({
+          type: "About",
+          content: formData.About,
+        });
+      }
+      if (selectedComp.includes("Image")) {
+        components.push({ type: "Image", src: formData.image });
+      }
+      if (selectedComp.includes("Footer")) {
+        components.push({
           type: "Footer",
           content: [
             { tab: "Github", link: formData.github },
             { tab: "LinkedIn", link: formData.linkedin },
             { tab: "Twitter", link: formData.twitter },
           ],
-        },
-      ];
+        });
+      }
 
       const landingPageData = {
         userId,
@@ -98,7 +128,7 @@ const LandingPageEdit = () => {
         components,
         status: "Draft",
       };
-
+      console.log(landingPageData);
       dispatch(editLandingPage({ landingPageId: id, landingPageData }));
       router.push(`/landingpage/${id}`);
     } catch (error) {
@@ -194,15 +224,31 @@ const LandingPageEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor="textContent">About Text:</label>
+          <label htmlFor="About">About Text:</label>
           <textarea
-            id="textContent"
-            name="textContent"
+            id="About"
+            name="About"
             rows="4"
-            value={formData.textContent}
+            value={formData.About}
             className="border border-[var(--ter-color)] rounded-md p-2 w-full"
             onChange={handleChange}
           ></textarea>
+        </div>
+        <div className="mt-10">
+          <ul>
+            {["About", "Image", "Footer"].map((tab, i) => (
+              <li key={i} className="text-lg ">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={selectedComp.includes(tab)}
+                    onChange={(e) => handleCheckboxChange(e, tab)}
+                  />
+                  {tab}
+                </label>
+              </li>
+            ))}
+          </ul>
         </div>
         <button
           type="submit"

@@ -16,8 +16,10 @@ const Footer = () => {
 
   useEffect(() => {
     if (id && landingPages.length > 0) {
-      const currentFooter = landingPages.find((page) => page.id === id)
-        ?.components[3]?.content;
+      const currentFooter = landingPages[0].components?.find(
+        (item) => item.type === "Footer"
+      ).content;
+      console.log(currentFooter);
       setFooterTabs(currentFooter || footerList);
     }
   }, [id, landingPages]);

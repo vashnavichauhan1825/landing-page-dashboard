@@ -2,12 +2,14 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const Image = () => {
+const ImageComp = () => {
   const router = useRouter();
   const { id } = router.query;
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const landingPage = landingPages.find((page) => page.id === id.toString());
-  const [imgSrc, setImgSrc] = useState(landingPage?.components[2].src || "");
+  const [imgSrc, setImgSrc] = useState(
+    landingPages[0].components?.find((item) => item.type === "Image").src || ""
+  );
 
   const handleImageError = () => {
     setImgSrc(
@@ -26,4 +28,4 @@ const Image = () => {
   );
 };
 
-export default Image;
+export default ImageComp;

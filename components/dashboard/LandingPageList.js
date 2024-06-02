@@ -7,6 +7,7 @@ import {
 import { getUserIdFromLocalStorage } from "/store/slices/authSlice";
 import Link from "next/link";
 const LandingPageList = () => {
+  const landingPages = useSelector((state) => state.landingPages.landingPages);
   const dispatch = useDispatch();
   useEffect(() => {
     const userId = getUserIdFromLocalStorage();
@@ -15,7 +16,6 @@ const LandingPageList = () => {
     }
   }, [dispatch]);
 
-  const landingPages = useSelector((state) => state.landingPages.landingPages);
   const livePage = landingPages.filter((page) => page.status === "Live")[0];
   const deleteHandler = (id) => {
     dispatch(deleteLandingPage(id));
@@ -23,6 +23,7 @@ const LandingPageList = () => {
   const filteredLandingPages = landingPages.filter(
     (page) => page.status !== "Live"
   );
+  console.log(landingPages, filteredLandingPages);
   return (
     <ul className="grid grid-cols-4 mx-auto gap-2 mt-5">
       {livePage && (
@@ -59,28 +60,33 @@ const LandingPageList = () => {
           Create New
         </Link>
       </li>
-      {filteredLandingPages.map((page, i) => (
-        <li
-          key={i}
-          className="bg-[var(--primary-color)] text-lg text-center cursor-pointer rounded-md flex flex-col overflow-hidden"
-        >
-          <Link
-            href={`/landingpage/${page.id}`}
-            className="px-5 py-10 flex justify-center items-center hover:opacity-75 "
+      {landingPages
+        .filter((page) => page.status !== "Live")
+        .map((page, i) => (
+          <li
+            key={i}
+            className="bg-[var(--primary-color)] text-lg text-center cursor-pointer rounded-md flex flex-col overflow-hidden"
           >
-            <h2>{page.title}</h2>
-          </Link>
-          <div className="bg-[var(--secondary-color)] text-[var(--ter-color)] h-full text-sm flex justify-center items-center gap-3 p-2">
-            <Link href={`/landingpage/${page.id}/edit`}>
-              <p>Edit</p>
+            <Link
+              href={`/landingpage/${page.id}`}
+              className="px-5 py-10 flex justify-center items-center hover:opacity-75 "
+            >
+              <h2>{page.title}</h2>
             </Link>
+            <div className="bg-[var(--secondary-color)] text-[var(--ter-color)] h-full text-sm flex justify-center items-center gap-3 p-2">
+              <Link href={`/landingpage/${page.id}/edit`}>
+                <p>Edit</p>
+              </Link>
 
-            <p className=" text-red-400" onClick={() => deleteHandler(page.id)}>
-              Delete
-            </p>
-          </div>
-        </li>
-      ))}
+              <p
+                className=" text-red-400"
+                onClick={() => deleteHandler(page.id)}
+              >
+                Delete
+              </p>
+            </div>
+          </li>
+        ))}
     </ul>
   );
 };

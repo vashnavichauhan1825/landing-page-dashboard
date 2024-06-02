@@ -27,7 +27,7 @@ const LandingPageCreate = () => {
         title: formData.title,
         description: formData.description,
         components: [
-          { type: "Header", content: ["Home", "About", "Career", "Contact"] },
+          { type: "Header", content: ["Home", "About", "Contact"] },
           { type: "About", content: formData.About },
           {
             type: "Image",

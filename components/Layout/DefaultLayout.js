@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { logoutUser } from "@/store/slices/authSlice";
+import Navbar from "./Navbar";
 const DefaultLayout = ({ children }) => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -12,17 +13,19 @@ const DefaultLayout = ({ children }) => {
   };
 
   return (
-    <div className=" h-[100vh]">
-      {isAuthenticated && router.pathname !== "/auth" && (
-        <button
-          onClick={handleLogout}
-          className="absolute right-2 top-1 bg-[var(--cta-color)] text-xs rounded-md  px-3 py-1 hover:opacity-90  hover:text-[var(--primary-color)] cursor-pointer"
-        >
-          Logout
-        </button>
-      )}
-      {children}
-    </div>
+    <>
+      <div className=" h-[100vh]">
+        {isAuthenticated && router.pathname !== "/auth" && (
+          <button
+            onClick={handleLogout}
+            className="absolute right-2 top-1 bg-[var(--cta-color)] text-xs rounded-md  px-3 py-1 hover:opacity-90  hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            Logout
+          </button>
+        )}
+        {children}
+      </div>
+    </>
   );
 };
 

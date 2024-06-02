@@ -14,7 +14,7 @@ const LandingPageList = () => {
 
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const livePage = landingPages.filter((page) => page.status === "Live")[0];
-  console.log("oddod", livePage);
+
   return (
     <ul className="grid grid-cols-4 mx-auto gap-2 mt-5">
       {livePage && (
@@ -44,14 +44,20 @@ const LandingPageList = () => {
           page.status !== "Live" && (
             <li
               key={i}
-              className="bg-[var(--primary-color)] text-lg text-center cursor-pointer hover:opacity-75 rounded-md"
+              className="bg-[var(--primary-color)] text-lg text-center cursor-pointer rounded-md flex flex-col"
             >
               <Link
                 href={`/landingpage/${page.id}`}
-                className="px-5 py-10 flex justify-center items-center"
+                className="px-5 py-10 flex justify-center items-center hover:opacity-75 "
               >
                 <h2>{page.title}</h2>
               </Link>
+              <div className="bg-[var(--secondary-color)] text-[var(--ter-color)] h-full text-sm flex justify-center items-center gap-3 p-2">
+                <Link href={`/landingpage/${page.id}/edit`}>
+                  <p>Edit</p>
+                </Link>
+                <p className=" text-red-400">Delete</p>
+              </div>
             </li>
           )
       )}

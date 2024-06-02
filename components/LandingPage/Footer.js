@@ -1,9 +1,26 @@
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 const Footer = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const footerList = [
     { tab: "Github", link: "https://github.com/vashnavichauhan1825" },
     { tab: "LinkedIn", link: "https://www.linkedin.com/in/vashnavichauhan18" },
     { tab: "Twitter", link: "https://x.com/VashnaviChauhan" },
   ];
+  const [footerTabs, setFooterTabs] = useState(footerList);
+
+  const landingPages = useSelector((state) => state.landingPages.landingPages);
+
+  useEffect(() => {
+    if (id && landingPages.length > 0) {
+      const currentFooter = landingPages.find((page) => page.id === id)
+        ?.components[3]?.content;
+      setFooterTabs(currentFooter || footerList);
+    }
+  }, [id, landingPages]);
 
   return (
     <footer
@@ -11,7 +28,7 @@ const Footer = () => {
       className="bg-[var(--secondary-color)] py-10 h-[30vh] flex items-center justify-center"
     >
       <ul className="text-[var(--primary-color)] flex justify-center gap-10">
-        {footerList.map((tab, i) => (
+        {footerTabs.map((tab, i) => (
           <li
             key={i}
             className="cursor-pointer hover:text-[var(--cta-color)] text-lg"

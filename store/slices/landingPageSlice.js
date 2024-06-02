@@ -69,6 +69,23 @@ const updateLandingPageStatus = createAsyncThunk(
   }
 );
 
+const editLandingPage = createAsyncThunk(
+  "landingPages/editLandingPage",
+  async ({ landingPageId, landingPageData }) => {
+    const response = await fetch(
+      `http://localhost:5000/landingPages/${landingPageId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(landingPageData),
+      }
+    );
+    const data = await response.json();
+    return data;
+  }
+);
 const landingPageSlice = createSlice({
   name: "landingPages",
   initialState,
@@ -112,8 +129,31 @@ const landingPageSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       });
+
+    builder
+      .addCase(editLandingPage.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(editLandingPage.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        const index = state.landingPages.findIndex(
+          (page) => page.id === action.payload.id
+        );
+        if (index !== -1) {
+          state.landingPages[index] = action.payload;
+        }
+      })
+      .addCase(editLandingPage.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
   },
 });
 
-export { fetchLandingPages, createLandingPage, updateLandingPageStatus };
+export {
+  fetchLandingPages,
+  createLandingPage,
+  updateLandingPageStatus,
+  editLandingPage,
+};
 export default landingPageSlice.reducer;

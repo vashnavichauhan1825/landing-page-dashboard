@@ -14,12 +14,16 @@ export default function LandingPage() {
   const { id } = router.query;
   return (
     <>
-      {router.pathname !== `/landingpage/[id]/preview` &&
-        (!livePage || livePage.id !== id) && <Navbar />}
-      <Header />
-      <HeroSec />
-      <TextBlock />
-      <Footer />
+      {landingPages && (
+        <>
+          {router.pathname !== `/landingpage/[id]/preview` &&
+            (!livePage || livePage.id !== id) && <Navbar />}
+          <Header />
+          <HeroSec />
+          <TextBlock />
+          <Footer />
+        </>
+      )}
     </>
   );
 }

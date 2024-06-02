@@ -707,32 +707,31 @@
     {
       "id": "d028",
       "userId": "b9e35890-13b8-4e2f-b0b7-1b7bddfb592c",
-      "title": "kajal kumari",
-      "description": "software engineer developer",
+      "title": " new one",
+      "description": "HELLO WORLD NEW WORLD",
       "components": [
         {
           "type": "Header",
           "content": [
             "Home",
             "About",
-            "Career",
             "Contact"
           ]
         },
         {
           "type": "TextContent",
-          "content": "jkncskcfsafwsajfasbfasfbiasbfasfbsaijkfbaskjfkjas"
+          "content": "this is superb"
         },
         {
           "type": "Image",
-          "src": "https://unsplash.com/photos/green-trees-on-mountain-during-daytime-jSyzETbKch4"
+          "src": "https://images.unsplash.com/photo-1623944864235-db595bfccaad?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
           "type": "Footer",
           "content": [
             {
               "tab": "Github",
-              "link": "https://github.com/vashnavichauhan1825"
+              "link": "https://github.com/vashnavichauhan18"
             },
             {
               "tab": "LinkedIn",
@@ -745,20 +744,24 @@
           ]
         }
       ],
-      "status": "Draft"
+      "status": "Live",
+      "textContent": "this is changed",
+      "image": "https://images.unsplash.com/photo-1623944864235-db595bfccaad?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "github": "vashnavichauhan18",
+      "twitter": "https://x.com/VashnaviChauhan",
+      "linkedin": "https://www.linkedin.com/in/vashnavichauhan18"
     },
     {
       "id": "1ffb",
       "userId": "b9e35890-13b8-4e2f-b0b7-1b7bddfb592c",
       "title": "himadri shah",
-      "description": "ambitious girl",
+      "description": "Crazy bees",
       "components": [
         {
           "type": "Header",
           "content": [
             "Home",
             "About",
-            "Career",
             "Contact"
           ]
         },
@@ -775,11 +778,11 @@
           "content": [
             {
               "tab": "Github",
-              "link": "https://github.com/vashnavichauhan1825"
+              "link": "github.com"
             },
             {
               "tab": "LinkedIn",
-              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+              "link": "="
             },
             {
               "tab": "Twitter",
@@ -788,7 +791,12 @@
           ]
         }
       ],
-      "status": "Draft"
+      "status": "Draft",
+      "textContent": "hfdjfbwhfb isabdfasfba",
+      "image": "https://images.unsplash.com/photo-1625315642929-3774ba1d1af4?q=80&w=2757&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "github": "https://github.com/vashnavichauhan1825",
+      "twitter": "VashnaviChauhan",
+      "linkedin": "https://www.linkedin.com/in/vashnavichauhan18"
     },
     {
       "id": "fbd5",
@@ -831,7 +839,7 @@
           ]
         }
       ],
-      "status": "Live"
+      "status": "Draft"
     },
     {
       "id": "8407",

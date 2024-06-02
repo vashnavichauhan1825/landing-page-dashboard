@@ -18,7 +18,6 @@ const LandingPageEdit = () => {
     linkedin: "",
   });
 
-  // Fetch the landing page data when the component mounts
   useEffect(() => {
     const { id } = router.query;
     const landingPage = landingPages.find((page) => page.id === id);

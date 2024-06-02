@@ -86,6 +86,15 @@ const editLandingPage = createAsyncThunk(
     return data;
   }
 );
+const deleteLandingPage = createAsyncThunk(
+  "landingPages/deleteLandingPage",
+  async (landingPageId) => {
+    await fetch(`http://localhost:5000/landingPages/${landingPageId}`, {
+      method: "DELETE",
+    });
+    return landingPageId;
+  }
+);
 const landingPageSlice = createSlice({
   name: "landingPages",
   initialState,
@@ -147,6 +156,22 @@ const landingPageSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       });
+
+    builder
+      .addCase(deleteLandingPage.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(deleteLandingPage.fulfilled, (state, action) => {
+        state.status = "succeeded";
+
+        state.landingPages = state.landingPages.filter(
+          (page) => page.id !== action.payload
+        );
+      })
+      .addCase(deleteLandingPage.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
   },
 });
 
@@ -155,5 +180,6 @@ export {
   createLandingPage,
   updateLandingPageStatus,
   editLandingPage,
+  deleteLandingPage,
 };
 export default landingPageSlice.reducer;

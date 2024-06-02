@@ -744,7 +744,7 @@
           ]
         }
       ],
-      "status": "Live",
+      "status": "Draft",
       "textContent": "this is changed",
       "image": "https://images.unsplash.com/photo-1623944864235-db595bfccaad?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "github": "vashnavichauhan18",
@@ -782,7 +782,7 @@
             },
             {
               "tab": "LinkedIn",
-              "link": "="
+              "link": "uhuhu"
             },
             {
               "tab": "Twitter",
@@ -791,7 +791,7 @@
           ]
         }
       ],
-      "status": "Draft",
+      "status": "Live",
       "textContent": "hfdjfbwhfb isabdfasfba",
       "image": "https://images.unsplash.com/photo-1625315642929-3774ba1d1af4?q=80&w=2757&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "github": "https://github.com/vashnavichauhan1825",
@@ -842,9 +842,51 @@
       "status": "Draft"
     },
     {
-      "id": "8407",
-      "userId": "b9e35890-13b8-4e2f-b0b7-1b7bddfb592c",
-      "title": "aadu ",
+      "id": "259e",
+      "userId": "a1e2e312-7d64-46b5-b510-9baf2446f853",
+      "title": "vashnavi chauhan",
+      "description": "software engineer developer",
+      "components": [
+        {
+          "type": "Header",
+          "content": [
+            "Home",
+            "About",
+            "Contact"
+          ]
+        },
+        {
+          "type": "TextContent",
+          "content": "happy happy"
+        },
+        {
+          "type": "Image",
+          "src": "https://images.unsplash.com/photo-1623944864235-db595bfccaad?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "Footer",
+          "content": [
+            {
+              "tab": "Github",
+              "link": "https://github.com/vashnavichauhan1825"
+            },
+            {
+              "tab": "LinkedIn",
+              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+            },
+            {
+              "tab": "Twitter",
+              "link": "https://x.com/VashnaviChauhan"
+            }
+          ]
+        }
+      ],
+      "status": "Live"
+    },
+    {
+      "id": "2242",
+      "userId": "a1e2e312-7d64-46b5-b510-9baf2446f853",
+      "title": "dummy landing",
       "description": "HELLO WORLD NEW WORLD",
       "components": [
         {
@@ -858,11 +900,11 @@
         },
         {
           "type": "TextContent",
-          "content": "dwjhdb"
+          "content": "hjdbdhb dhwbdh"
         },
         {
           "type": "Image",
-          "src": "https://images.unsplash.com/photo-1625315642929-3774ba1d1af4?q=80&w=2757&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          "src": "https://plus.unsplash.com/premium_photo-1669863282295-9f0c9938a4a4?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
           "type": "Footer",

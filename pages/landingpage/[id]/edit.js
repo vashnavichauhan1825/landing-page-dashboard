@@ -56,8 +56,12 @@ const LandingPageEdit = () => {
         twitter = twitterObj ? twitterObj.link : "";
         linkedin = linkedinObj ? linkedinObj.link : "";
       }
-      const checkedList = landingPages[0]?.components.map((item) => item.type);
 
+      const currentLandingPage = landingPages.filter((page) => page.id === id);
+      const checkedList = currentLandingPage[0]?.components.map(
+        (item) => item.type
+      );
+      console.log(checkedList, "checklist");
       setSelectedComp(checkedList);
       setFormData({
         title: landingPage.title || "",
@@ -129,7 +133,7 @@ const LandingPageEdit = () => {
         status: "Draft",
       };
       dispatch(editLandingPage({ landingPageId: id, landingPageData }));
-      router.replace(`/landingpage/${id}`);
+      router.push(`/`);
     } catch (error) {
       console.error("Error editing landing page:", error);
     }

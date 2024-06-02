@@ -6,6 +6,7 @@ const TextBlock = () => {
   const { id } = router.query;
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const landingPage = landingPages.find((page) => page.id === id.toString());
+  console.log(landingPage);
   return (
     landingPage && (
       <section
@@ -14,10 +15,8 @@ const TextBlock = () => {
       >
         <h1 className="text-[var(--secondary-color)] text-4xl">About</h1>
         <p className="text-[var(--cta-color)] mx-56 text-xl">
-          {
-            landingPages[0].components?.find((item) => item.type === "About")
-              .content
-          }
+          {landingPage?.components?.find((item) => item.type === "About")
+            .content || ""}
         </p>
       </section>
     )

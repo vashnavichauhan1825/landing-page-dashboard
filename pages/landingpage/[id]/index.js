@@ -8,12 +8,14 @@ import { useSelector } from "react-redux";
 
 export default function LandingPage() {
   const router = useRouter();
-  const landingPages = useSelector((state) => state.landingPages.landingPages);
-  const livePage = landingPages.filter((page) => page.status === "Live")[0];
   const { id } = router.query;
 
+  const landingPages = useSelector((state) => state.landingPages.landingPages);
+  const livePage = landingPages.filter((page) => page.status === "Live")[0];
+  const currentLandingPage = landingPages.filter((page) => page.id === id);
+  console.log(currentLandingPage, "pppp");
   const isComponentPresent = (componentType) => {
-    return landingPages[0]?.components.some(
+    return currentLandingPage[0]?.components.some(
       (component) => component.type === componentType
     );
   };

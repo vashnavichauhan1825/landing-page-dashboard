@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const Footer = () => {
+const Footer = ({ pageId }) => {
   const router = useRouter();
   const { id } = router.query;
   const footerList = [
@@ -16,11 +16,12 @@ const Footer = () => {
 
   useEffect(() => {
     if (id && landingPages.length > 0) {
-      const currentFooter = landingPages[0].components?.find(
+      const currentFooter = landingPages.filter((page) => page.id === id);
+      const footerVal = currentFooter[0]?.components.find(
         (item) => item.type === "Footer"
       ).content;
-
-      setFooterTabs(currentFooter || footerList);
+      console.log("footer", footerVal, currentFooter);
+      setFooterTabs(footerVal || footerList);
     }
   }, [id, landingPages]);
 

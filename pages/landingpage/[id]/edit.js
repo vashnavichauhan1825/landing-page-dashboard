@@ -130,7 +130,7 @@ const LandingPageEdit = () => {
       };
       console.log(landingPageData);
       dispatch(editLandingPage({ landingPageId: id, landingPageData }));
-      router.push(`/landingpage/${id}`);
+      router.replace(`/landingpage/${id}`);
     } catch (error) {
       console.error("Error editing landing page:", error);
     }

@@ -123,8 +123,8 @@ const landingPageSlice = createSlice({
       })
       .addCase(createLandingPage.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.landingPages = [...state.landingPages, action.payload];
-        console.log("create", [...state.landingPages, action.payload]);
+        // state.landingPages = [...state.landingPages, action.payload];
+        // console.log("create", [...state.landingPages, action.payload]);
       })
       .addCase(createLandingPage.rejected, (state, action) => {
         state.status = "failed";

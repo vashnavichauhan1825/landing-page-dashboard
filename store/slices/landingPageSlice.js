@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 const initialState = {
   landingPages: [],
   status: "idle",
@@ -10,10 +12,9 @@ const fetchLandingPages = createAsyncThunk(
   "landingPages/fetchLandingPages",
   async (userId) => {
     const response = await fetch(
-      `http://localhost:5000/landingPages?userId=${userId}`
+      `${API_BASE_URL}/landingPages?userId=${userId}`
     );
     const data = await response.json();
-    console.log("-----data", data);
     return data;
   }
 );
@@ -21,7 +22,7 @@ const fetchLandingPages = createAsyncThunk(
 const createLandingPage = createAsyncThunk(
   "landingPages/createLandingPage",
   async ({ userId, landingPageData }) => {
-    const response = await fetch("http://localhost:5000/landingPages", {
+    const response = await fetch(`${API_BASE_URL}/landingPages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +37,7 @@ const createLandingPage = createAsyncThunk(
 const updateLandingPageStatus = createAsyncThunk(
   "landingPages/updateLandingPageStatus",
   async ({ userId, landingPageId }) => {
-    await fetch(`http://localhost:5000/landingPages/${landingPageId}`, {
+    await fetch(`${API_BASE_URL}/landingPages/${landingPageId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -45,13 +46,13 @@ const updateLandingPageStatus = createAsyncThunk(
     });
 
     const response = await fetch(
-      `http://localhost:5000/landingPages?userId=${userId}`
+      `${API_BASE_URL}/landingPages?userId=${userId}`
     );
     const landingPages = await response.json();
 
     for (const page of landingPages) {
       if (page.id !== landingPageId) {
-        await fetch(`http://localhost:5000/landingPages/${page.id}`, {
+        await fetch(`${API_BASE_URL}/landingPages/${page.id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -62,7 +63,7 @@ const updateLandingPageStatus = createAsyncThunk(
     }
 
     const updatedResponse = await fetch(
-      `http://localhost:5000/landingPages?userId=${userId}`
+      `${API_BASE_URL}/landingPages?userId=${userId}`
     );
     const updatedData = await updatedResponse.json();
     return updatedData;
@@ -73,7 +74,7 @@ const editLandingPage = createAsyncThunk(
   "landingPages/editLandingPage",
   async ({ landingPageId, landingPageData }) => {
     const response = await fetch(
-      `http://localhost:5000/landingPages/${landingPageId}`,
+      `${API_BASE_URL}/landingPages/${landingPageId}`,
       {
         method: "PATCH",
         headers: {
@@ -86,15 +87,17 @@ const editLandingPage = createAsyncThunk(
     return data;
   }
 );
+
 const deleteLandingPage = createAsyncThunk(
   "landingPages/deleteLandingPage",
   async (landingPageId) => {
-    await fetch(`http://localhost:5000/landingPages/${landingPageId}`, {
+    await fetch(`${API_BASE_URL}/landingPages/${landingPageId}`, {
       method: "DELETE",
     });
     return landingPageId;
   }
 );
+
 const landingPageSlice = createSlice({
   name: "landingPages",
   initialState,
@@ -163,7 +166,6 @@ const landingPageSlice = createSlice({
       })
       .addCase(deleteLandingPage.fulfilled, (state, action) => {
         state.status = "succeeded";
-
         state.landingPages = state.landingPages.filter(
           (page) => page.id !== action.payload
         );

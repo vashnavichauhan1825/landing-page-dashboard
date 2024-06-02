@@ -7,7 +7,6 @@ const initialState = {
 };
 export const getUserIdFromLocalStorage = () => {
   if (typeof window !== "undefined") {
-    // Ensure localStorage is only accessed in the browser
     const user = JSON.parse(localStorage.getItem("user"));
     return user ? user.userId : null;
   }

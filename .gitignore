@@ -10,7 +10,7 @@
 /coverage
 
 # Ignore db.json
-db.json
+./db.json
 
 # next.js
 /.next/

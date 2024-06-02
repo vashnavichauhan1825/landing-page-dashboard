@@ -1,4 +1,4 @@
-import Image from "./Image";
+import ImageComp from "./ImageComp";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 const HeroSec = () => {
@@ -6,6 +6,11 @@ const HeroSec = () => {
   const { id } = router.query;
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const landingPage = landingPages.find((page) => page.id === id.toString());
+  const isComponentPresent = (componentType) => {
+    return landingPages[0].components.some(
+      (component) => component.type === componentType
+    );
+  };
   return (
     <>
       {landingPage && (
@@ -19,7 +24,7 @@ const HeroSec = () => {
               {landingPage.description}
             </p>
           </div>
-          <Image />
+          {isComponentPresent("Image") && <ImageComp />}
         </section>
       )}
     </>

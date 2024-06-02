@@ -17,7 +17,6 @@ const LandingPageEdit = () => {
     twitter: "",
     linkedin: "",
   });
-
   useEffect(() => {
     const { id } = router.query;
     const landingPage = landingPages.find((page) => page.id === id);
@@ -70,7 +69,21 @@ const LandingPageEdit = () => {
       [name]: value,
     }));
   };
+  const [selectedComp, setSelectedComp] = useState([
+    "About",
+    "Image",
+    "Footer",
+  ]);
 
+  const handleCheckboxChange = (e, tab) => {
+    if (e.target.checked) {
+      setSelectedComp((prevSelectedComp) => [...prevSelectedComp, tab]);
+    } else {
+      setSelectedComp((prevSelectedComp) =>
+        prevSelectedComp.filter((item) => item !== tab)
+      );
+    }
+  };
   const { id } = router.query;
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,18 +91,31 @@ const LandingPageEdit = () => {
       const userId = getUserIdFromLocalStorage();
 
       const components = [
-        { type: "Header", content: ["Home", "About", "Contact"] },
-        { type: "TextContent", content: formData.textContent },
-        { type: "Image", src: formData.image },
         {
+          type: "Header",
+          content: ["Home", "About", "Contact"],
+        },
+      ];
+
+      if (selectedComp.includes("About")) {
+        components.push({
+          type: "TextContent",
+          content: formData.textContent,
+        });
+      }
+      if (selectedComp.includes("Image")) {
+        components.push({ type: "Image", src: formData.image });
+      }
+      if (selectedComp.includes("Footer")) {
+        components.push({
           type: "Footer",
           content: [
             { tab: "Github", link: formData.github },
             { tab: "LinkedIn", link: formData.linkedin },
             { tab: "Twitter", link: formData.twitter },
           ],
-        },
-      ];
+        });
+      }
 
       const landingPageData = {
         userId,
@@ -98,7 +124,7 @@ const LandingPageEdit = () => {
         components,
         status: "Draft",
       };
-
+      console.log(landingPageData);
       dispatch(editLandingPage({ landingPageId: id, landingPageData }));
       router.push(`/landingpage/${id}`);
     } catch (error) {
@@ -204,12 +230,29 @@ const LandingPageEdit = () => {
             onChange={handleChange}
           ></textarea>
         </div>
+        <div className="mt-10">
+          <ul>
+            {["About", "Image", "Footer"].map((tab, i) => (
+              <li key={i} className="text-lg ">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={selectedComp.includes(tab)}
+                    onChange={(e) => handleCheckboxChange(e, tab)}
+                  />
+                  {tab}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
         <button
           type="submit"
           className="mx-auto w-full bg-[var(--cta-color)] rounded-md my-4 p-2 hover:opacity-90 font-semibold hover:text-[var(--primary-color)] h-fit"
         >
           Edit Landing Page
         </button>
+        <p>{selectedComp}</p>
       </form>
     </div>
   );

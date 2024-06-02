@@ -23,7 +23,6 @@ const LandingPageList = () => {
   const filteredLandingPages = landingPages.filter(
     (page) => page.status !== "Live"
   );
-  console.log(landingPages, filteredLandingPages);
   return (
     <ul className="grid grid-cols-4 mx-auto gap-2 mt-5">
       {livePage && (

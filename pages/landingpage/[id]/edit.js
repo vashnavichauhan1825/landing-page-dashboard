@@ -128,7 +128,6 @@ const LandingPageEdit = () => {
         components,
         status: "Draft",
       };
-      console.log(landingPageData);
       dispatch(editLandingPage({ landingPageId: id, landingPageData }));
       router.replace(`/landingpage/${id}`);
     } catch (error) {

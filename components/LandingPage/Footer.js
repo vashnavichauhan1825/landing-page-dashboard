@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const Footer = ({ pageId }) => {
+const Footer = () => {
   const router = useRouter();
   const { id } = router.query;
   const footerList = [

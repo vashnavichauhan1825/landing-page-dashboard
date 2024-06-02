@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Landing Page Dashboard with Routing
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+Ensure you have the following installed:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js
+- npm (Node package manager) or yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/vashnavichauhan1825/landing-page-dashboard.git
+    cd landing-page-dashboard
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+    or
+    ```bash
+    yarn install
+    ```
 
-## Learn More
+3. **Setup environment variables:**
+    Create a `.env.local` file in the root directory with the following content:
+    ```
+    NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+    PORT=3000
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    or
+    ```bash
+    yarn dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Run the mock API server:**
+    ```bash
+    npm run mock
+    ```
+    or
+    ```bash
+    yarn mock
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. The mock API server will be running at [http://localhost:5000](http://localhost:5000).
 
-## Deploy on Vercel
+### Live URL
+You can view the live application at [Landing Page Dashboard](https://landing-page-dashboard-9ew5ek4n0-vashnavichauhan1825s-projects.vercel.app/).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Mock API
+The mock API JSON data is stored in `db.json`.

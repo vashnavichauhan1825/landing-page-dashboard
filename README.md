@@ -53,7 +53,7 @@ Ensure you have the following installed:
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. The mock API server will be running at [http://localhost:5000](http://localhost:5000).
 
 ### Live URL
-You can view the live application at [Landing Page Dashboard](https://landing-page-dashboard-9ew5ek4n0-vashnavichauhan1825s-projects.vercel.app/).
+You can view the live application at [Landing Page Dashboard](https://landing-page-dashboard-mhmyoy8tw-vashnavichauhan1825s-projects.vercel.app/auth).
 
 ### Mock API
 The mock API JSON data is stored in `db.json`.

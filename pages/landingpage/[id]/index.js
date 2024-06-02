@@ -13,7 +13,6 @@ export default function LandingPage() {
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const livePage = landingPages.filter((page) => page.status === "Live")[0];
   const currentLandingPage = landingPages.filter((page) => page.id === id);
-  console.log(currentLandingPage, "pppp");
   const isComponentPresent = (componentType) => {
     return currentLandingPage[0]?.components.some(
       (component) => component.type === componentType

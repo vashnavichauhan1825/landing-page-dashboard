@@ -7,7 +7,6 @@ const ImageComp = () => {
   const { id } = router.query;
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const landingPage = landingPages.find((page) => page.id === id.toString());
-  // console.log(landingPage, "ppphdhdh");
   const [imgSrc, setImgSrc] = useState(
     landingPage?.components?.find((item) => item.type === "Image").src || ""
   );

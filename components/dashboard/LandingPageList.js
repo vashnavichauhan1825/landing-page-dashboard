@@ -15,7 +15,6 @@ const LandingPageList = () => {
       dispatch(fetchLandingPages(userId));
     }
   }, [dispatch]);
-  console.log(landingPages);
   const livePage = landingPages.filter((page) => page.status === "Live")[0];
   const deleteHandler = (id) => {
     dispatch(deleteLandingPage(id));

@@ -61,7 +61,6 @@ const LandingPageEdit = () => {
       const checkedList = currentLandingPage[0]?.components.map(
         (item) => item.type
       );
-      console.log(checkedList, "checklist");
       setSelectedComp(checkedList);
       setFormData({
         title: landingPage.title || "",

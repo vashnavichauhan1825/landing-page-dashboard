@@ -6,7 +6,6 @@ const TextBlock = () => {
   const { id } = router.query;
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const landingPage = landingPages.find((page) => page.id === id.toString());
-  console.log(landingPage);
   return (
     landingPage && (
       <section

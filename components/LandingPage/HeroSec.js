@@ -7,7 +7,6 @@ const HeroSec = () => {
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const landingPage = landingPages.find((page) => page.id === id.toString());
   const currentLandingPage = landingPages.filter((page) => page.id === id);
-  console.log(currentLandingPage, "pppp");
   const isComponentPresent = (componentType) => {
     return currentLandingPage[0]?.components.some(
       (component) => component.type === componentType

@@ -20,7 +20,6 @@ const Footer = () => {
       const footerVal = currentFooter[0]?.components.find(
         (item) => item.type === "Footer"
       ).content;
-      console.log("footer", footerVal, currentFooter);
       setFooterTabs(footerVal || footerList);
     }
   }, [id, landingPages]);

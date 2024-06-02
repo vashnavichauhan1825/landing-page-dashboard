@@ -110,6 +110,7 @@ const landingPageSlice = createSlice({
       .addCase(fetchLandingPages.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.landingPages = action.payload;
+        console.log("fetch", state.landingPages);
       })
       .addCase(fetchLandingPages.rejected, (state, action) => {
         state.status = "failed";
@@ -123,7 +124,7 @@ const landingPageSlice = createSlice({
       .addCase(createLandingPage.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.landingPages = [...state.landingPages, action.payload];
-        console.log("hdb", action.payload);
+        console.log("create", [...state.landingPages, action.payload]);
       })
       .addCase(createLandingPage.rejected, (state, action) => {
         state.status = "failed";

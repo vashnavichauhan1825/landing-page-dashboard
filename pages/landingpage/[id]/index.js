@@ -13,7 +13,7 @@ export default function LandingPage() {
   const { id } = router.query;
 
   const isComponentPresent = (componentType) => {
-    return landingPages[0].components.some(
+    return landingPages[0]?.components.some(
       (component) => component.type === componentType
     );
   };

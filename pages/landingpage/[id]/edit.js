@@ -11,18 +11,24 @@ const LandingPageEdit = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    textContent: "",
+    About: "",
     image: "",
     github: "",
     twitter: "",
     linkedin: "",
   });
+  const [selectedComp, setSelectedComp] = useState([
+    "About",
+    "Image",
+    "Footer",
+  ]);
+
   useEffect(() => {
     const { id } = router.query;
     const landingPage = landingPages.find((page) => page.id === id);
     if (landingPage) {
-      const textContentComponent = landingPage.components.find(
-        (c) => c.type === "TextContent"
+      const AboutComponent = landingPage.components.find(
+        (c) => c.type === "About"
       );
       const imageComponent = landingPage.components.find(
         (c) => c.type === "Image"
@@ -50,10 +56,13 @@ const LandingPageEdit = () => {
         twitter = twitterObj ? twitterObj.link : "";
         linkedin = linkedinObj ? linkedinObj.link : "";
       }
+      const checkedList = landingPages[0]?.components.map((item) => item.type);
+
+      setSelectedComp(checkedList);
       setFormData({
         title: landingPage.title || "",
         description: landingPage.description || "",
-        textContent: textContentComponent ? textContentComponent.content : "",
+        About: AboutComponent ? AboutComponent.content : "",
         image: imageComponent ? imageComponent.src : "",
         github: github,
         twitter: twitter,
@@ -69,11 +78,6 @@ const LandingPageEdit = () => {
       [name]: value,
     }));
   };
-  const [selectedComp, setSelectedComp] = useState([
-    "About",
-    "Image",
-    "Footer",
-  ]);
 
   const handleCheckboxChange = (e, tab) => {
     if (e.target.checked) {
@@ -99,8 +103,8 @@ const LandingPageEdit = () => {
 
       if (selectedComp.includes("About")) {
         components.push({
-          type: "TextContent",
-          content: formData.textContent,
+          type: "About",
+          content: formData.About,
         });
       }
       if (selectedComp.includes("Image")) {
@@ -220,12 +224,12 @@ const LandingPageEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor="textContent">About Text:</label>
+          <label htmlFor="About">About Text:</label>
           <textarea
-            id="textContent"
-            name="textContent"
+            id="About"
+            name="About"
             rows="4"
-            value={formData.textContent}
+            value={formData.About}
             className="border border-[var(--ter-color)] rounded-md p-2 w-full"
             onChange={handleChange}
           ></textarea>
@@ -252,7 +256,6 @@ const LandingPageEdit = () => {
         >
           Edit Landing Page
         </button>
-        <p>{selectedComp}</p>
       </form>
     </div>
   );

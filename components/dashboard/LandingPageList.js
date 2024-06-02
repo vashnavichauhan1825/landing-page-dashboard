@@ -7,6 +7,7 @@ import {
 import { getUserIdFromLocalStorage } from "/store/slices/authSlice";
 import Link from "next/link";
 const LandingPageList = () => {
+  const landingPages = useSelector((state) => state.landingPages.landingPages);
   const dispatch = useDispatch();
   useEffect(() => {
     const userId = getUserIdFromLocalStorage();
@@ -15,7 +16,6 @@ const LandingPageList = () => {
     }
   }, [dispatch]);
 
-  const landingPages = useSelector((state) => state.landingPages.landingPages);
   const livePage = landingPages.filter((page) => page.status === "Live")[0];
   const deleteHandler = (id) => {
     dispatch(deleteLandingPage(id));

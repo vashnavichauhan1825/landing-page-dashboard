@@ -9,7 +9,7 @@ const LandingPageCreate = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    textContent: "",
+    About: "",
     image: "",
   });
 
@@ -28,7 +28,7 @@ const LandingPageCreate = () => {
         description: formData.description,
         components: [
           { type: "Header", content: ["Home", "About", "Career", "Contact"] },
-          { type: "TextContent", content: formData.textContent },
+          { type: "About", content: formData.About },
           {
             type: "Image",
             src: formData.image,
@@ -52,7 +52,7 @@ const LandingPageCreate = () => {
       setFormData({
         title: "",
         description: "",
-        textContent: "",
+        About: "",
         image: "",
       });
       router.push("/");
@@ -115,12 +115,12 @@ const LandingPageCreate = () => {
           />
         </div>
         <div>
-          <label htmlFor="textContent">About Text:</label>
+          <label htmlFor="About">About Text:</label>
           <textarea
-            id="textContent"
-            name="textContent"
+            id="About"
+            name="About"
             rows="4"
-            value={formData.textContent}
+            value={formData.About}
             className="border border-[var(--ter-color)] rounded-md p-2 w-full"
             onChange={handleChange}
             required

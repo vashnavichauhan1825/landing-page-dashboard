@@ -15,9 +15,8 @@ const TextBlock = () => {
         <h1 className="text-[var(--secondary-color)] text-4xl">About</h1>
         <p className="text-[var(--cta-color)] mx-56 text-xl">
           {
-            landingPages[0].components?.find(
-              (item) => item.type === "TextContent"
-            ).content
+            landingPages[0].components?.find((item) => item.type === "About")
+              .content
           }
         </p>
       </section>

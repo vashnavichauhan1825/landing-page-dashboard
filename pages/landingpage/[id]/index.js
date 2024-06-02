@@ -26,7 +26,7 @@ export default function LandingPage() {
             (!livePage || livePage.id !== id) && <Navbar />}
           {isComponentPresent("Header") && <Header />}
           <HeroSec />
-          {isComponentPresent("TextContent") && <TextBlock />}
+          {isComponentPresent("About") && <TextBlock />}
           {isComponentPresent("Footer") && <Footer />}
         </>
       )}

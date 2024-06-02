@@ -20,15 +20,12 @@ const authSlice = createSlice({
       const userId = uuidv4();
       state.user = { ...action.payload, userId: userId };
       state.isAuthenticated = true;
-      console.log(state.user);
       localStorage.setItem("user", JSON.stringify(state.user));
-      console.log("login working");
     },
     logoutUser(state) {
       state.user = null;
       state.isAuthenticated = false;
       localStorage.removeItem("user");
-      console.log("logiout working");
     },
     setAuth(state, action) {
       state.isAuthenticated = action.payload;

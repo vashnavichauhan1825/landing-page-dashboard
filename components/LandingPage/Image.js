@@ -6,9 +6,7 @@ const Image = () => {
   const router = useRouter();
   const { id } = router.query;
   const landingPages = useSelector((state) => state.landingPages.landingPages);
-  console.log(id);
   const landingPage = landingPages.find((page) => page.id === id.toString());
-  console.log(landingPage);
   const [imgSrc, setImgSrc] = useState(landingPage?.components[2].src || "");
 
   const handleImageError = () => {

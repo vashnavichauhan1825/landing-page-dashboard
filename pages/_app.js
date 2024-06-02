@@ -21,14 +21,14 @@ function AuthProvider({ children }) {
 
   return children;
 }
-function MyApp({ Component, pageProps }) {
-  const Layout = Component.layout || DefaultLayout;
+function MyApp({ Component }) {
+  const Layout = DefaultLayout;
 
   return (
     <Provider store={store}>
       <AuthProvider>
         <Layout>
-          <Component {...pageProps} />
+          <Component />
         </Layout>
       </AuthProvider>
     </Provider>

@@ -16,7 +16,6 @@ const AuthForm = () => {
       ...prevState,
       [name]: value,
     }));
-    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {

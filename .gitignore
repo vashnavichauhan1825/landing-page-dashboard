@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# Ignore db.json
+./db.json
+
 # next.js
 /.next/
 /out/

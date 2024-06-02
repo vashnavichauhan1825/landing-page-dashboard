@@ -51,7 +51,6 @@ const LandingPageEdit = () => {
         twitter = twitterObj ? twitterObj.link : "";
         linkedin = linkedinObj ? linkedinObj.link : "";
       }
-      console.log(github, twitter);
       setFormData({
         title: landingPage.title || "",
         description: landingPage.description || "",

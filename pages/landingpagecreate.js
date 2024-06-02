@@ -1,10 +1,16 @@
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { createLandingPage } from "@/store/slices/landingPageSlice";
+import { getUserIdFromLocalStorage } from "/store/slices/authSlice";
+import { useRouter } from "next/router";
 const LandingPageCreate = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     textContent: "",
+    image: "",
   });
 
   const handleChange = (e) => {
@@ -14,8 +20,38 @@ const LandingPageCreate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      const userId = getUserIdFromLocalStorage();
+      const landingPageData = {
+        userId,
+        title: formData.title,
+        description: formData.description,
+        components: [
+          { type: "Header", content: ["Home", "About", "Career", "Contact"] },
+          { type: "TextContent", content: formData.textContent },
+          {
+            type: "Image",
+            src: formData.image,
+          },
+          {
+            type: "Footer",
+            content: ["Github", "LinkedIn", "Twitter", "Mail"],
+          },
+        ],
+        status: "Draft",
+      };
+      dispatch(createLandingPage({ userId, landingPageData }));
 
-    console.log(formData);
+      setFormData({
+        title: "",
+        description: "",
+        textContent: "",
+        image: "",
+      });
+      router.push("/");
+    } catch (error) {
+      console.error("Error creating landing page:", error);
+    }
   };
 
   return (
@@ -54,7 +90,23 @@ const LandingPageCreate = () => {
             onChange={handleChange}
           />
         </div>
-
+        <div className="flex flex-col">
+          <label
+            htmlFor="image"
+            className="text-[var(--secondary-color)] opacity-90 text-lg"
+          >
+            Image url :
+          </label>
+          <input
+            type="text"
+            id="image"
+            name="image"
+            value={formData.image}
+            onChange={handleChange}
+            className="border border-[var(--ter-color)] rounded-md p-2 w-full"
+            required
+          />
+        </div>
         <div>
           <label htmlFor="textContent">About Text:</label>
           <textarea

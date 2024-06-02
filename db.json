@@ -616,7 +616,7 @@
           ]
         }
       ],
-      "status": "Live"
+      "status": "Draft"
     },
     {
       "id": "a707",
@@ -640,6 +640,221 @@
         {
           "type": "Image",
           "src": "https://unsplash.com/photos/green-trees-on-mountain-during-daytime-jSyzETbKch4"
+        },
+        {
+          "type": "Footer",
+          "content": [
+            {
+              "tab": "Github",
+              "link": "https://github.com/vashnavichauhan1825"
+            },
+            {
+              "tab": "LinkedIn",
+              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+            },
+            {
+              "tab": "Twitter",
+              "link": "https://x.com/VashnaviChauhan"
+            }
+          ]
+        }
+      ],
+      "status": "Draft"
+    },
+    {
+      "id": "6a77",
+      "userId": "8995cf67-30a0-4689-9d97-57eb4bf49508",
+      "title": "happpppy coding",
+      "description": "software engineer developer",
+      "components": [
+        {
+          "type": "Header",
+          "content": [
+            "Home",
+            "About",
+            "Career",
+            "Contact"
+          ]
+        },
+        {
+          "type": "TextContent",
+          "content": "sadjbsahda dshjfbhjba jafbasfbs sjabfjhsab"
+        },
+        {
+          "type": "Image",
+          "src": "https://images.unsplash.com/photo-1625315642929-3774ba1d1af4?q=80&w=2757&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "Footer",
+          "content": [
+            {
+              "tab": "Github",
+              "link": "https://github.com/vashnavichauhan1825"
+            },
+            {
+              "tab": "LinkedIn",
+              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+            },
+            {
+              "tab": "Twitter",
+              "link": "https://x.com/VashnaviChauhan"
+            }
+          ]
+        }
+      ],
+      "status": "Live"
+    },
+    {
+      "id": "d028",
+      "userId": "b9e35890-13b8-4e2f-b0b7-1b7bddfb592c",
+      "title": "kajal kumari",
+      "description": "software engineer developer",
+      "components": [
+        {
+          "type": "Header",
+          "content": [
+            "Home",
+            "About",
+            "Career",
+            "Contact"
+          ]
+        },
+        {
+          "type": "TextContent",
+          "content": "jkncskcfsafwsajfasbfasfbiasbfasfbsaijkfbaskjfkjas"
+        },
+        {
+          "type": "Image",
+          "src": "https://unsplash.com/photos/green-trees-on-mountain-during-daytime-jSyzETbKch4"
+        },
+        {
+          "type": "Footer",
+          "content": [
+            {
+              "tab": "Github",
+              "link": "https://github.com/vashnavichauhan1825"
+            },
+            {
+              "tab": "LinkedIn",
+              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+            },
+            {
+              "tab": "Twitter",
+              "link": "https://x.com/VashnaviChauhan"
+            }
+          ]
+        }
+      ],
+      "status": "Draft"
+    },
+    {
+      "id": "1ffb",
+      "userId": "b9e35890-13b8-4e2f-b0b7-1b7bddfb592c",
+      "title": "himadri shah",
+      "description": "ambitious girl",
+      "components": [
+        {
+          "type": "Header",
+          "content": [
+            "Home",
+            "About",
+            "Career",
+            "Contact"
+          ]
+        },
+        {
+          "type": "TextContent",
+          "content": "hfdjfbwhfb isabdfasfba"
+        },
+        {
+          "type": "Image",
+          "src": "https://images.unsplash.com/photo-1625315642929-3774ba1d1af4?q=80&w=2757&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "Footer",
+          "content": [
+            {
+              "tab": "Github",
+              "link": "https://github.com/vashnavichauhan1825"
+            },
+            {
+              "tab": "LinkedIn",
+              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+            },
+            {
+              "tab": "Twitter",
+              "link": "https://x.com/VashnaviChauhan"
+            }
+          ]
+        }
+      ],
+      "status": "Draft"
+    },
+    {
+      "id": "fbd5",
+      "userId": "b9e35890-13b8-4e2f-b0b7-1b7bddfb592c",
+      "title": "abhijeet singh",
+      "description": "wudhenfiue",
+      "components": [
+        {
+          "type": "Header",
+          "content": [
+            "Home",
+            "About",
+            "Career",
+            "Contact"
+          ]
+        },
+        {
+          "type": "TextContent",
+          "content": "ejfejfekjfef kfr3 jekf"
+        },
+        {
+          "type": "Image",
+          "src": "https://images.unsplash.com/photo-"
+        },
+        {
+          "type": "Footer",
+          "content": [
+            {
+              "tab": "Github",
+              "link": "https://github.com/vashnavichauhan1825"
+            },
+            {
+              "tab": "LinkedIn",
+              "link": "https://www.linkedin.com/in/vashnavichauhan18"
+            },
+            {
+              "tab": "Twitter",
+              "link": "https://x.com/VashnaviChauhan"
+            }
+          ]
+        }
+      ],
+      "status": "Live"
+    },
+    {
+      "id": "8407",
+      "userId": "b9e35890-13b8-4e2f-b0b7-1b7bddfb592c",
+      "title": "aadu ",
+      "description": "HELLO WORLD NEW WORLD",
+      "components": [
+        {
+          "type": "Header",
+          "content": [
+            "Home",
+            "About",
+            "Career",
+            "Contact"
+          ]
+        },
+        {
+          "type": "TextContent",
+          "content": "dwjhdb"
+        },
+        {
+          "type": "Image",
+          "src": "https://images.unsplash.com/photo-1625315642929-3774ba1d1af4?q=80&w=2757&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
           "type": "Footer",

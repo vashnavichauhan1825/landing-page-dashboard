@@ -8,7 +8,7 @@ const ImageComp = () => {
   const landingPages = useSelector((state) => state.landingPages.landingPages);
   const landingPage = landingPages.find((page) => page.id === id.toString());
   const [imgSrc, setImgSrc] = useState(
-    landingPages[0].components?.find((item) => item.type === "Image").src || ""
+    landingPage?.components?.find((item) => item.type === "Image").src || ""
   );
 
   const handleImageError = () => {

@@ -16,11 +16,11 @@ const Footer = () => {
 
   useEffect(() => {
     if (id && landingPages.length > 0) {
-      const currentFooter = landingPages[0].components?.find(
+      const currentFooter = landingPages.filter((page) => page.id === id);
+      const footerVal = currentFooter[0]?.components.find(
         (item) => item.type === "Footer"
       ).content;
-
-      setFooterTabs(currentFooter || footerList);
+      setFooterTabs(footerVal || footerList);
     }
   }, [id, landingPages]);
 

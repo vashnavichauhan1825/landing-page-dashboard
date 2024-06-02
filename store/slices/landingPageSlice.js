@@ -147,16 +147,11 @@ const landingPageSlice = createSlice({
       })
       .addCase(editLandingPage.fulfilled, (state, action) => {
         state.status = "succeeded";
-        const index = state.landingPages.findIndex(
-          (page) => page.id === action.payload.id
-        );
-        if (index !== -1) {
-          state.landingPages[index] = action.payload;
-        }
       })
       .addCase(editLandingPage.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+        state.landingPages = [...state.landingPages, action.payload];
       });
 
     builder

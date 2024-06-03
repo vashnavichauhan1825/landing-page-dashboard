@@ -2,14 +2,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { logoutUser } from "@/store/slices/authSlice";
 import Navbar from "./Navbar";
+import {
+  clearLandingPages,
+  deleteAllLandingPages,
+} from "@/store/slices/landingPageSlice";
+import { getUserIdFromLocalStorage } from "@/store/slices/authSlice";
 const DefaultLayout = ({ children }) => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const userId = getUserIdFromLocalStorage();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const handleLogout = () => {
     dispatch(logoutUser());
     router.push("/auth");
+    dispatch(deleteAllLandingPages(userId));
+    dispatch(clearLandingPages());
   };
 
   return (

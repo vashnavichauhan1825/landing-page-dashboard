@@ -22,7 +22,7 @@ const Footer = () => {
       ).content;
       setFooterTabs(footerVal || footerList);
     }
-  }, [id, landingPages]);
+  }, [id, landingPages, footerList]);
 
   return (
     <footer

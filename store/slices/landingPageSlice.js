@@ -97,11 +97,32 @@ const deleteLandingPage = createAsyncThunk(
     return landingPageId;
   }
 );
+const deleteAllLandingPages = createAsyncThunk(
+  "landingPages/deleteAllLandingPages",
+  async (userId) => {
+    const response = await fetch(
+      `${API_BASE_URL}/landingPages?userId=${userId}`
+    );
+    const landingPages = await response.json();
+
+    for (const page of landingPages) {
+      await fetch(`${API_BASE_URL}/landingPages/${page.id}`, {
+        method: "DELETE",
+      });
+    }
+
+    return userId;
+  }
+);
 
 const landingPageSlice = createSlice({
   name: "landingPages",
   initialState,
-  reducers: {},
+  reducers: {
+    clearLandingPages(state) {
+      state.landingPages = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchLandingPages.pending, (state) => {
@@ -122,6 +143,7 @@ const landingPageSlice = createSlice({
       })
       .addCase(createLandingPage.fulfilled, (state, action) => {
         state.status = "succeeded";
+        state.landingPages = [...state.landingPages, action.payload];
       })
       .addCase(createLandingPage.rejected, (state, action) => {
         state.status = "failed";
@@ -147,6 +169,7 @@ const landingPageSlice = createSlice({
       })
       .addCase(editLandingPage.fulfilled, (state, action) => {
         state.status = "succeeded";
+        // state.landingPages = [...state.landingPages, action.payload];
       })
       .addCase(editLandingPage.rejected, (state, action) => {
         state.status = "failed";
@@ -177,5 +200,7 @@ export {
   updateLandingPageStatus,
   editLandingPage,
   deleteLandingPage,
+  deleteAllLandingPages,
 };
+export const { clearLandingPages } = landingPageSlice.actions;
 export default landingPageSlice.reducer;

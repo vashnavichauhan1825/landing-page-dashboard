@@ -4,7 +4,7 @@ import {
   fetchLandingPages,
   deleteLandingPage,
 } from "@/store/slices/landingPageSlice";
-import { getUserIdFromLocalStorage } from "/store/slices/authSlice";
+import { getUserIdFromLocalStorage } from "@/store/slices/authSlice";
 import Link from "next/link";
 const LandingPageList = () => {
   const landingPages = useSelector((state) => state.landingPages.landingPages);
@@ -14,7 +14,9 @@ const LandingPageList = () => {
     if (userId) {
       dispatch(fetchLandingPages(userId));
     }
-  }, [dispatch]);
+    console.log("fetching");
+  }, []);
+
   const livePage = landingPages.filter((page) => page.status === "Live")[0];
   const deleteHandler = (id) => {
     dispatch(deleteLandingPage(id));

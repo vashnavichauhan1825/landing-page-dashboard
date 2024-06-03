@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editLandingPage } from "@/store/slices/landingPageSlice";
+import {
+  editLandingPage,
+  fetchLandingPages,
+} from "@/store/slices/landingPageSlice";
 import { getUserIdFromLocalStorage } from "/store/slices/authSlice";
 import { useRouter } from "next/router";
 
@@ -92,7 +95,7 @@ const LandingPageEdit = () => {
     }
   };
   const { id } = router.query;
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const userId = getUserIdFromLocalStorage();
@@ -131,7 +134,9 @@ const LandingPageEdit = () => {
         components,
         status: "Draft",
       };
-      dispatch(editLandingPage({ landingPageId: id, landingPageData }));
+
+      await dispatch(editLandingPage({ landingPageId: id, landingPageData }));
+      await dispatch(fetchLandingPages(userId));
       router.push(`/`);
     } catch (error) {
       console.error("Error editing landing page:", error);
@@ -256,7 +261,7 @@ const LandingPageEdit = () => {
           type="submit"
           className="mx-auto w-full bg-[var(--cta-color)] rounded-md my-4 p-2 hover:opacity-90 font-semibold hover:text-[var(--primary-color)] h-fit"
         >
-          Edit Landing Page
+          Save Changes
         </button>
       </form>
     </div>

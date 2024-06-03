@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { createLandingPage } from "@/store/slices/landingPageSlice";
 import { getUserIdFromLocalStorage } from "/store/slices/authSlice";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
 const LandingPageCreate = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const LandingPageCreate = () => {
           },
         ],
         status: "Draft",
+        id: uuidv4(),
       };
       dispatch(createLandingPage({ userId, landingPageData }));
 

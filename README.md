@@ -46,7 +46,7 @@ Ensure you have the following installed:
 
 
 ### Live URL
-You can view the live application at [Landing Page Dashboard](https://landing-page-dashboard-g5rt3hgrg-vashnavichauhan1825s-projects.vercel.app/auth).
+You can view the live application at [Landing Page Dashboard](https://landing-page-dashboard-xi.vercel.app/auth).
 
 ### Backend Server
 The backend server is hosted in a separate repository. You can find it at [Landing Page Backend](https://github.com/vashnavichauhan1825/landing-page-backend).

@@ -64,11 +64,11 @@ const LandingPageCreate = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-10">
+    <div className="flex flex-col items-center ">
       <h1 className="text-3xl font-bold mt-6">Create a New Landing Page</h1>
       <form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto  w-[40%] px-6 bg-[var(--primary-color)] rounded-md py-8 grid grid-cols-1 gap-8"
+        className="max-w-md mx-auto  w-[40%] max-sm:w-[90%] mt-5 px-6 bg-[var(--primary-color)] rounded-md py-8 grid grid-cols-1 gap-5"
       >
         <div className="flex flex-col">
           <label

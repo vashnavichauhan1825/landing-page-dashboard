@@ -145,12 +145,12 @@ const LandingPageEdit = () => {
 
   return (
     <div className="flex flex-col items-center gap-10">
-      <h1 className="text-3xl font-bold mt-6">
+      <h1 className="text-3xl font-bold mt-6 max-sm:text-center">
         Coffee Break Over ? Lets Edit Landing Page !
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto  w-[40%] px-6 bg-[var(--primary-color)] rounded-md py-8 grid grid-cols-2 gap-8 "
+        className="max-w-md mx-auto  w-[40%] max-sm:w-[90%] px-6 bg-[var(--primary-color)] rounded-md py-8 grid grid-cols-2 gap-8 max-sm:grid-cols-1"
       >
         <div className="flex flex-col">
           <label
@@ -241,7 +241,7 @@ const LandingPageEdit = () => {
             onChange={handleChange}
           ></textarea>
         </div>
-        <div className="mt-10">
+        <div className="sm:mt-10">
           <ul>
             {["About", "Image", "Footer"].map((tab, i) => (
               <li key={i} className="text-lg ">

@@ -1,4 +1,4 @@
-# Landing Page Dashboard with Routing
+# Landing Page Dashboard with Mock API 
 
 ## Getting Started
 
@@ -28,8 +28,8 @@ Ensure you have the following installed:
 3. **Setup environment variables:**
     Create a `.env.local` file in the root directory with the following content:
     ```
-    NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
-    PORT=3000
+    NEXT_PUBLIC_API_BASE_URL=https://landing-page-backend-aj03.onrender.com
+    
     ```
 
 4. **Run the development server:**
@@ -41,19 +41,14 @@ Ensure you have the following installed:
     yarn dev
     ```
 
-5. **Run the mock API server:**
-    ```bash
-    npm run mock
-    ```
-    or
-    ```bash
-    yarn mock
-    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. The mock API server will be running at [http://localhost:5000](http://localhost:5000).
+
 
 ### Live URL
-You can view the live application at [Landing Page Dashboard](https://landing-page-dashboard-git-8728da-vashnavichauhan1825s-projects.vercel.app/auth).
+You can view the live application at [Landing Page Dashboard](https://landing-page-dashboard-g5rt3hgrg-vashnavichauhan1825s-projects.vercel.app/auth).
 
-### Mock API
-The mock API JSON data is stored in `db.json`.
+### Backend Server
+The backend server is hosted in a separate repository. You can find it at [Landing Page Backend](https://github.com/vashnavichauhan1825/landing-page-backend).
+
+Happy Coding ta ta :)

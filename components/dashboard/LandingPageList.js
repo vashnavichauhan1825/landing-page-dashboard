@@ -25,7 +25,7 @@ const LandingPageList = () => {
     (page) => page.status !== "Live"
   );
   return (
-    <ul className="grid grid-cols-4 mx-auto gap-2 mt-5">
+    <ul className="grid grid-cols-4 mx-auto gap-2 mt-5 max-sm:grid-cols-2">
       {livePage && (
         <li
           key={livePage.id}

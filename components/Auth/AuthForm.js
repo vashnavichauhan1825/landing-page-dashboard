@@ -27,7 +27,7 @@ const AuthForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto  w-[40%]  pt-5 pb-8 px-6 bg-[var(--primary-color)] rounded-md"
+      className="max-w-md mx-auto  w-[40%]  pt-5 pb-8 px-6 bg-[var(--primary-color)] rounded-md max-sm:w-[90%]"
     >
       <h1 className="text-[var(--secondary-color)] text-3xl font-bold">
         Login Now !
